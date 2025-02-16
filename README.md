@@ -1,7 +1,7 @@
 # Serial_comm_GUI
 This project simulates a **hardware device communicating over a UART (serial) connection**, verifies received data, and checks for expected responses.
 
-## 📌 Overview
+##  Overview
 This project extends the **UART-based verification system** by adding a **GUI serial monitor** that allows users to:
 - **View incoming serial data in real-time**.
 - **Send test commands** to the simulated hardware.
@@ -26,14 +26,14 @@ pyyaml: A library to handle test configurations in a YAML format, making it easi
 Since we are simulating hardware, we will create a pair of virtual serial ports using socat. This will allow two Python scripts to communicate as if they were connected to actual hardware.
 
 
-1️⃣ Install socat
+1. Install socat
 
 Install socat on macOS using Homebrew:
 
 brew install socat
 
 
-2️⃣ Create Virtual Serial Ports
+2. Create Virtual Serial Ports
 
 After installing socat, run the following command in your terminal to create two virtual serial ports:
 
@@ -46,35 +46,35 @@ This command will generate two virtual serial ports. The output will look simila
 2024/02/10 12:34:56 socat[12345] N PTY is /dev/ttys005
 
 
-3️⃣ Take Note of the Virtual Ports
+3. Take Note of the Virtual Ports
 
 Take note of the two virtual serial devices created by socat (e.g., /dev/ttys004 and /dev/ttys005).
 
 One port will be used by the mock hardware script.
 The other port will be used by the test script to simulate communication.
 
-## 🚀 Running the Project
+## Running the Project
 
-1️⃣ Start the Mock Hardware
+1. Start the Mock Hardware
 python mock_hardware.py
 (Simulates a device sending test data every 2 seconds.)
 
-2️⃣ Start the GUI Serial Monitor
+2. Start the GUI Serial Monitor
 python serial_gui.py
 Click "Connect" to start reading data.
 Use the input field to send test messages.
 Click "Save Log" to save received data.
 
-3️⃣ (Optional) Run the Test Runner
+3. (Optional) Run the Test Runner
 python test_runner.py
 Listens for incoming serial data and verifies expected responses.
 
-🎨 GUI Features
+ GUI Features
 
-✅ Real-time serial data display
+- Real-time serial data display
 
-✅ Send test commands via GUI
+- Send test commands via GUI
 
-✅ Save logs for debugging
+- Save logs for debugging
 
-✅ Automatic detection of available serial ports
+- Automatic detection of available serial ports
